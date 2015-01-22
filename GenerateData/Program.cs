@@ -97,7 +97,10 @@ method can be one of:
 		}
 
 		private static void PrintCount() {
-			Console.Error.WriteLine("{0} lines generated in {1}ms", count, watch.ElapsedMilliseconds);
+			Console.Error.WriteLine("{0:#,##0} lines generated in {1:#,##0}ms. Current memory usage: {2:#,##0}",
+				count,
+				watch.ElapsedMilliseconds,
+				Process.GetCurrentProcess().WorkingSet64);
 		}
 	}
 }
